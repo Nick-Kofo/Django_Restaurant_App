@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% block search %}
+    {% for dish in dishes %}
+        <div class="col-md-4">
+            <div class="card hoverable">
+                <div class="card-image">
+                    <div class="view overlay hm-white-slight z-depth-1">
+                        {% if dish.photo %}
+                            <img src="{{ dish.photo.url }}" class="img-responsive" alt="">
+                        {% endif %}
+                        <div class="mask waves-effect"></div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li><h5>{{ dish.name }}</h5></li>
+                        <li><h5><i class="fa fa-eur"></i>{{ dish.price }}</h5></li>
+                    </ul>
+                </div>
+                <div class="card-btn text-center">
+                    <a href="{% url 'dish_description' pk=dish.pk %}"
+                       class="btn btn-success btn-md waves-effect waves-light">Dish Information</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

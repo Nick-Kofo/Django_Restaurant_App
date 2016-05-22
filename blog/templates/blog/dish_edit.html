@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block dish_form %}
+    <div class="new-dish-form">
+        <h4 class="text-center">Post a new dish</h4>
+        <form enctype="multipart/form-data" method="POST" class="col-md-12 white-text">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-success btn-lg">Add/Edit Dish</button>
+        </form>
+    </div>
+{% endblock %}

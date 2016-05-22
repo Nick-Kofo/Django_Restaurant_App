@@ -1,0 +1,130 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurant</title>
+    <!-- Bootstrap & Custom css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/mdb.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" type="text/css">
+    <!--Bootstrap fonts -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Bootstrap fonts -->
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Bold.woff' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Bold.woff2' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Light.woff' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Light.woff2' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Medium.woff' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Medium.woff2' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Regular.woff' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Regular.woff2' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Thin.woff' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'fonts/Roboto-Thin.woff2' %}" media="screen">
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <nav class="navbar success-color">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-light white-text" href="{% url 'dish_list' %}">Welcome: <i
+                        class="fa fa-user"></i>{{ user }}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'dish_list_type_appetizer' %}" class="waves-effect waves-light white-text"><i
+                            class="fa fa-hand-o-up"></i>Appetizers <span class="sr-only">(current)</span></a></li>
+                    <li><a href="{% url 'dish_list_type_main_course' %}" class="waves-effect waves-light white-text"><i
+                            class="fa fa-hand-o-up"></i>Main Courses <span class="sr-only">(current)</span></a></li>
+                    <li><a href="{% url 'dish_list_type_dessert' %}" class="waves-effect waves-light white-text"><i
+                            class="fa fa-hand-o-up"></i>Desserts <span class="sr-only">(current)</span></a></li>
+                    <form method="get" action="/search/" class="navbar-form navbar-right" role="search">
+                        <div class="form-group waves-effect waves-light white-text">
+                            <input type="text" class="form-control white-text" placeholder="Search" name="q">
+                        </div>
+                    </form>
+                </ul>
+                <ul class="nav navbar-nav navbar-right white-text">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'dish_new' %}"><i class="fa fa-plus-square"></i>Add Dish</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+    <div class="container-fluid elegant-color">
+        {% block dish_list %}
+        {% endblock %}
+        {% block dish_list_type_appetizer %}
+        {% endblock %}
+
+        {% block dish_list_type_main_course %}
+        {% endblock %}
+
+        {% block dish_list_type_dessert %}
+        {% endblock %}
+
+        {% block dish_description %}
+        {% endblock %}
+
+        {% block dish_form %}
+        {% endblock %}
+
+        {% block search %}
+        {% endblock %}
+    </div>
+</main>
+
+
+<footer class="page-footer success-color center-on-small-only">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="white-text"><a href="http://www.teicm.gr/index.php?lang=el" target="_blank"/><i
+                        class="fa fa-book"></i>ΤΕΙ Κεντρικής Μακεδονίας</h5>
+                <h5 class="white-text"><a href="http://informatics.teicm.gr/" target="_blank"/><i
+                        class="fa fa-book"></i>ΠΜΣ Εφαρμοσμένη Πληροφορική</h5>
+            </div>
+            <div class="col-md-4">
+                <h5 class="white-text"><a href="https://play.google.com/store/search?q=kofotolios&hl=en"
+                                          target="_blank"/><i class="fa fa-user-secret"></i>Νίκος Κοφοτόλιος</h5>
+                <h5 class="white-text"><a href="https://play.google.com/store/search?q=chanlioglou&hl=en"
+                                          target="_blank"/><i class="fa fa-user-secret"></i>Φώτης Χανλήογλου</h5>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<!-- Material Design Bootstrap -->
+<script type="text/javascript" src="{% static 'js/mdb.js' %}"></script>
+</body>
+</html>
