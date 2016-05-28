@@ -85,7 +85,7 @@ def dish_edit(request, pk):
             dish.author = request.user
             dish.published_date = timezone.now()
             dish.save()
-            return redirect('dish_detail', pk=dish.pk)
+            return redirect('dish_description', pk=dish.pk)
     else:
         form = DishForm(instance=dish)
     return render(request, 'blog/dish_edit.html', {'form': form})

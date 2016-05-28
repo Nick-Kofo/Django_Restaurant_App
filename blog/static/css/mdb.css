@@ -2900,6 +2900,7 @@ th {
 body {
   font-family: Roboto, sans-serif;
   overflow: auto !important;
+  background-color: #2E2E2E;
 }
 
 span.badge-md {
@@ -3393,6 +3394,7 @@ button.btn-floating {
   border: 0;
   border-radius: 0;
   font-weight: 300;
+  font-size: 26px;
 }
 
 .navbar .navbar-brand {
@@ -3400,6 +3402,7 @@ button.btn-floating {
   height: 60px;
   line-height: 30px;
   color: rgba(255, 255, 255, 0.84);
+  font-size: 26px;
 }
 
 .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
@@ -3511,6 +3514,7 @@ fieldset[disabled] .navbar .navbar-link:focus {
 .navbar .navbar-form .form-control-wrapper .form-control, .navbar .navbar-form .form-control {
   border-color: rgba(255, 255, 255, 0.84);
   color: rgba(255, 255, 255, 0.84);
+  font-size: 26px;
 }
 
 .navbar .navbar-form .form-control-wrapper .material-input:before, .navbar .navbar-form .form-control-wrapper input:focus ~ .material-input:after {
@@ -3639,7 +3643,8 @@ a {
 
 html {
   line-height: 1.5;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto",
+ sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.87);
 }

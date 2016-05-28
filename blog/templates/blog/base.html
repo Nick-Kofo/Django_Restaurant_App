@@ -6,16 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Restaurant</title>
-    <!-- Bootstrap & Custom css -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/mdb.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" type="text/css">
-    <!--Bootstrap fonts -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--Bootstrap fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'fonts/Roboto-Bold.woff' %}" media="screen">
     <link rel="stylesheet" href="{% static 'fonts/Roboto-Bold.woff2' %}" media="screen">
     <link rel="stylesheet" href="{% static 'fonts/Roboto-Light.woff' %}" media="screen">
@@ -28,10 +26,9 @@
     <link rel="stylesheet" href="{% static 'fonts/Roboto-Thin.woff2' %}" media="screen">
     <!-- favicon -->
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
+
 <header>
     <nav class="navbar success-color">
         <div class="container-fluid">
@@ -70,11 +67,11 @@
     </nav>
 </header>
 
-
 <main>
     <div class="container-fluid elegant-color">
         {% block dish_list %}
         {% endblock %}
+
         {% block dish_list_type_appetizer %}
         {% endblock %}
 
@@ -95,7 +92,6 @@
     </div>
 </main>
 
-
 <footer class="page-footer success-color center-on-small-only">
     <div class="container-fluid">
         <div class="row">
@@ -115,16 +111,12 @@
     </div>
 </footer>
 
-
-<!-- SCRIPTS -->
-
 <!-- JQuery -->
 <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-
 <!-- Material Design Bootstrap -->
 <script type="text/javascript" src="{% static 'js/mdb.js' %}"></script>
+
 </body>
 </html>
